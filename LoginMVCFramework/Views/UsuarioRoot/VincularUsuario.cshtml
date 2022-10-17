@@ -1,0 +1,77 @@
+﻿@model List<RH.Login.Entidades.DTO.UsuarioNoRegistradoDTO>
+
+<section class="container">
+    <div class="row ">
+        <div class="text-center marginBotton">
+            <H2> Vincular usuarios con aplicativos de la web </H2>
+            <p>Un usuario puede tener mas de un rol por aplicativo   </p>
+        </div>
+
+
+        <div class="col-lg-4 col-xs-12  text-center marginBotton">
+            <h5>Usuario Registrado </h5>
+            <div class="text-center">
+
+                <input list="browsers" name="browser" id="buscadorEmpleado" class="text-center" placeholder="Ingrese el numero de empleado">
+
+                <datalist id="browsers">
+                    @foreach (var nuevoUsuairoNoregistrado in Model)
+                    {
+                        <option value="@nuevoUsuairoNoregistrado.Num"> @nuevoUsuairoNoregistrado.MostrarTexto</option>
+                    }
+                    @*<option value="1">User1 </option>
+                      <option value="2">User2 </option>
+                      <option value="3">User3 </option>
+                      <option value="4">User4 </option>
+                      <option value="5">User5 </option>*@
+                </datalist>
+
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-xs-12  text-center marginBotton">
+            <h5>Aplicativo </h5>
+            <div class="form-group ">
+                <div id="mainselection">
+                    <select class="form-control " id="SeleccionarAppWeb" required style=" white-space:pre-wrap; ">
+                        <option value="" disabled selected>Selecciona un aplicativo web...</option>
+                        @foreach (var nuevaApp in ViewBag.AplicativosWeb)
+                            {
+                                <option value="@nuevaApp.Id">@nuevaApp.NombreAplicativo </option>
+                            }
+                    </select>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-xs-12 text-center marginBotton">
+
+            <h5>Rol </h5>
+            <div class="form-group ">
+                <div id="mainselection">
+                    <select class="form-control " id="SeleccionarRol" required style=" white-space:pre-wrap; ">
+                        <option value="" disabled selected>Selecciona un rol para el usuario...</option>
+                        @foreach (var nuevoRol in ViewBag.Roles)
+                        {
+
+                                <option value="@nuevoRol.Id">@nuevoRol.DescripcionRol </option>
+                            }
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-12 marginBotton">
+            <div class="text-center">
+                <button id="BotonPrimario" class="col-md-4 col-12 btn " title="Habilita a un usuario para usar un aplicativo con sus roles" onclick="VincularUsuarioAPP()">Agregar vinculo </button>
+            </div>
+        </div>
+
+
+    </div>
+
+</section>
+
+

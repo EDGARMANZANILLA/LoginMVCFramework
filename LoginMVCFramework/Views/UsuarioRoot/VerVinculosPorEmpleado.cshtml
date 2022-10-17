@@ -1,0 +1,106 @@
+﻿@model List<RH.Login.Entidades.DTO.UsuarioNoRegistradoDTO>
+
+
+<section class="container">
+
+    <div class="text-center">
+        <H2> Vinculos de roles de usuarios con aplicativos de la web </H2>
+        <p>Un usuario puede tener mas de un rol por aplicativo  </p>
+    </div>
+
+
+    <div class="row  text-center marginBotton">
+        <h5>Usuario </h5>
+        <div class="text-center  ">
+
+            <input list="browsers" name="browser" id="buscadorEmpleadoVinculo" class="text-center" placeholder="Ingrese el numero de empleado">
+
+            <datalist id="browsers">
+                @foreach (var nuevoUsuario in Model)
+                {
+                    <option value="@nuevoUsuario.Num"> @nuevoUsuario.MostrarTexto</option>
+                }
+            </datalist>
+
+        </div>
+    </div>
+
+
+    <div class="col-12 marginBotton">
+        <div class="text-center">
+            <button id="BotonPrimario" class="col-md-4 col-12 btn" title="Muestra una tabla donde se obvervan los roles que tiene dentro de cada aplicacion web" onclick="ObtenerVinculosEmpleado()">Ver vinculos </button>
+        </div>
+    </div>
+
+
+
+    <hr />
+    <!-- Simple table ------------ -->
+
+    <div class="margenSection">
+        <div class="table-responsive">
+
+            <div id="TblVinculosEmpleado">
+
+                <table id="ProblemasCheques" class='table table-striped table-bordered table-hover' style="display:none">
+                    <caption class="text-uppercase">detalles de problemas encontrados  </caption>
+
+                    <thead class="tabla">
+                        <tr class="text-center text-uppercase">
+
+                            <th>Id </th>
+                            <th>Folio  </th>
+                            <th>Incidencia </th>
+                            <th>Fecha Incidencia </th>
+
+
+                        </tr>
+                    </thead>
+
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Modal para editar -->
+    <div class="modal fade" id="EditarRol" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="TituloModal">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5 id="nombreRol"> selecciona si se desea activar o desactivar el rol </h5>
+                    <div class="form-group ">
+                        <div id="mainselection">
+                            <select class="form-control " id="SelectCambioDeRol" required style=" white-space:pre-wrap; ">
+                                <option value="0">Desactivar</option>
+                                <option value="1">Activar</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button id="GuardarCambiosRol" type="button" class="btn btn-primary" >Guardar cambio</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</section>
+
+
+
+

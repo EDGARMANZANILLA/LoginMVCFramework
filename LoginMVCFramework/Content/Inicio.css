@@ -1,0 +1,388 @@
+﻿/*
+    DEMO STYLE
+*/
+
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 2px;
+    border-bottom: 1px dashed #ddd;
+    margin-bottom: 25px;
+}
+
+.navbar {
+    background: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    /*box-shadow: 1px 0.5px 5px rgba(0, 0, 0, 0.1);*/
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+#sidebarCollapse:hover {
+    background-color: #9F3840;
+    color: #ffffff;
+    transition: 0.3s;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.botonSidebar {
+        width: 250px;
+        height: 48px;
+}
+
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    align-items: stretch;
+    background-color: #F0F1F5;
+}
+
+#sidebar {
+    min-width: 300px;
+    max-width: 300px;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    transition: all 0.3s;
+    /*box-shadow: 1px 1px 10px 2px #74BC7C;*/
+    box-shadow: 1px 1px 10px 1px #9F3840;
+}
+
+
+    #sidebar.active {
+        margin-left: -300px;
+    }
+
+
+    #sidebar .sidebar-header {
+        padding: 20px;
+        background: #e97c14;
+    }
+
+    #sidebar ul.components {
+        padding: 20px 0;
+        border-bottom: 1px solid #4110f1;
+    }
+
+    #sidebar ul p {
+        color: #74BC7C;
+        padding: 10px;
+    }
+
+
+    #sidebar ul li a {
+        padding: 10px;
+        font-size: 1em;
+        display: block;
+        color: #9F3840;
+        cursor: pointer;
+    }
+
+    #sidebar ul li a:hover {
+        color: #FFFFFF;
+         background: #d4676b;
+    }
+
+    #sidebar ul li a:active {
+        color: #FFFFFF;
+        background: #6b001a;
+    }
+   
+
+    #sidebar ul li.active > a,
+    a[aria-expanded="true"] {
+        color: #000;
+        background: #fff;
+    }
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #fff;
+}
+
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+
+
+#content {
+    width: 100%;
+    padding: 10px;
+    min-height: 100vh;
+    transition: all 0.5s;
+    color: #000000;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 760px) {
+    #sidebar {
+        margin-left: -300px;
+    }
+
+        #sidebar.active {
+            margin-left: 0;
+        }
+
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+
+
+
+/* ---------------------------------------------------
+    Footer
+----------------------------------------------------- */
+
+
+.Btn_color {
+    background-color: #9F3840;
+    color: #FFFFFF;
+    border-radius: 8px;
+}
+
+.TxtNegrita {
+    font-weight: bold;
+    font-size: 32px;
+}
+
+
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+}
+
+
+.hijo {
+    margin: 0 auto;
+}
+
+
+
+img {
+    height: 300px;
+}
+
+/*********
+anguguoooo
+
+***********/
+
+
+.nombreSistema {
+    margin-right: 40px;
+    height: 30px;
+}
+
+
+
+.negrita {
+    color: #000;
+}
+
+/***/
+
+
+
+caption {
+    background: #74BC7C;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    caption-side: top;
+    font-size: 20px;
+}
+
+
+
+p {
+    color: black;
+    margin-left: 30px;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+
+/*button {
+    text-align: center;
+}*/
+
+
+
+
+
+.tabla {
+    text-align: center;
+    background: #d4676b;
+}
+
+.tablaFiltro {
+    text-align: center;
+    background: #fffff;
+}
+
+
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #d4676b;
+}
+
+
+
+.texto-azul {
+    text-align: center;
+    color: blue;
+}
+
+.altura {
+    height: 100vh;
+}
+
+
+
+.modal-xll {
+    position: absolute;
+    max-width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 3%;
+    right: 3%;
+}
+
+
+
+
+
+
+
+.dt-buttons {
+    text-align: right;
+}
+
+
+
+
+.marginTop {
+    margin-top: 16px;
+}
+
+.marginBotton {
+    margin-bottom: 32px;
+}
+
+
+
+
+
+
+#buscadorEmpleado,
+#buscadorEmpleadoVinculo, #buscadorEmpleadoReset {
+    background-color: white;
+    width: 300px;
+    height: 50px;
+    border-radius: 16px;
+    border: solid 1px;
+}
+
+
+
+
+/************************************************************************************/
+/********** Botones primarios para la app una vez que inio sesion *******************/
+/************************************************************************************/
+
+#BotonPrimario {
+    background-color: #9F3840;
+    color: #FFFFFF;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+
+
+
+    #BotonPrimario:hover {
+        background: #d4676b;
+    }
+
+
+#BotonPrimario:active {
+    color: #FFFFFF;
+    background: #6b001a;
+}
+
+
+/************************************************************************************/
+/********** Titulo de tabla *******************/
+/************************************************************************************/
+
+caption {
+    background: #d1cdcd;
+    font-weight: bold;
+    text-align: center;
+    caption-side: top;
+    font-size: 20px;
+}
+
+
+
+/************************************************************************************/
+/********** Selectores de html  *******************/
+/************************************************************************************/
+
+#mainselection select {
+    border: 0;
+    color: rgb(11, 11, 12);
+    background: transparent;
+    font-size: 16px;
+    font-weight: bolder;
+    background: #ffffff;
+    text-align: left;
+}
+
+#mainselection {
+    border-radius: 9px 9px 9px 9px;
+    box-shadow: 1px 1px 8px #9F3840;
+}
+
+

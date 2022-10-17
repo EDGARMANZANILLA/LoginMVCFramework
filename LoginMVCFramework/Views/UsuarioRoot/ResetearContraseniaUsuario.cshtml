@@ -1,0 +1,42 @@
+﻿@model List<RH.Login.Entidades.DTO.UsuarioRootDTO.UniversoUsuariosAlphaDTO>
+
+
+
+<section class="container">
+    <div class="row ">
+        <div class="text-center marginBotton">
+            <H2>Cambiar contraseña de usuario en alpha</H2>
+            <p>Puede resetear la contraseña de un usuario que este usando cualquier version de alpha y este surgira efecto en cualquier plataforma</p>
+        </div>
+
+
+        <div class=" text-center marginBotton">
+            <h5>Usuario </h5>
+            <div class="text-center">
+
+                <input list="browsers" name="browser" id="buscadorEmpleadoReset" class="text-center" placeholder="Ingrese el numero de empleado">
+
+                <datalist id="browsers">
+                    @foreach (var nuevoUsuairoAlpha in Model)
+                    {
+                        <option value="@nuevoUsuairoAlpha.Num"> @nuevoUsuairoAlpha.MostrarTexto</option>
+                    }
+                  
+                </datalist>
+
+            </div>
+        </div>
+
+   
+
+        <div class="col-12 marginBotton">
+            <div class="text-center">
+                <button id="BotonPrimario" class="col-md-4 col-12 btn " title="Cambia la contraseña de un usuario" onclick="ResetearPassword()">Resetear contraseña </button>
+            </div>
+        </div>
+
+
+    </div>
+
+</section>
+

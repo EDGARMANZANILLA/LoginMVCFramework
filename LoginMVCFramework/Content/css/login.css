@@ -1,0 +1,70 @@
+﻿
+
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+.h-custom {
+    height: calc(100% - 73px);
+}
+
+@media (max-width: 450px) {
+    .h-custom {
+        height: 100%;
+    }
+}
+
+.margen {
+    margin-bottom: 32px;
+}
+
+
+.BotonConAccion {
+    background-color: #9F3840;
+    color: #FFFFFF;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.Text_Color {
+    color: #54565B;
+}
+
+.background_color_cardSimulada {
+    background-color: #F0F1F5;
+}
+
+
+
+/*Botones primarios para el layout del login */
+#BotonPrimario, 
+#BotonPrimarioSolicitarCambioPass {
+    background-color: #9F3840;
+    color: #FFFFFF;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+
+
+#BotonPrimarioSolicitarCambioPass:hover,
+#BotonPrimario:hover {
+    background: #d4676b;
+}
+
+#BotonPrimarioSolicitarCambioPass:active,
+#BotonPrimario:active {
+    color: #FFFFFF;
+    background: #6b001a;
+}
+
+
+
+.pointer {
+    cursor: pointer;
+}
+

@@ -1,0 +1,148 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+
+
+<section  >
+
+    <div class="vh-100 Text_Color" >
+        <div class="container-fluid h-custom">
+
+            <div class="row d-flex justify-content-center align-items-center h-100">
+
+                <div class="col-md-9 col-lg-6 col-xl-5" style="padding-bottom: 40px;">
+                    <img src="~/Content/Imagenes/LOGO GOBIERNO DE CAMPECHE_2021_2027.png" class="img-fluid" alt="Sample image" style="height: 600px; width:650px; margin-top:6px;">
+                </div>
+                <br />
+
+
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1" style="background-color:#FFFFFF; border-radius:16px; ">
+
+                    <div class="divider d-flex align-items-center my-4">
+
+                    </div>
+
+                    <div class="text-center">
+                        <p class="lead fw-normal mb-0 me-3 fw-bold">INICIO EN ALPHABET</p>
+
+                    </div>
+                    <br />
+                    <!-- User input -->
+                    <div class="form-floating">
+                        <input id="User" class="form-control" placeholder="Usuario" />
+                        <label for="floatingInput">Usuario:</label>
+
+                    </div>
+                    <br />
+                    <!-- Password input -->
+                    @*<div class="form-floating">
+                        <input id="Password" type="password" class="form-control" placeholder="Contraseña" />
+                        <label for="floatingPassword">Contraseña:</label>
+
+                    </div>*@
+
+                    <!--- -->
+                    <!--- -->
+
+                    <div class="form-floating">
+                        <input id="Password" type="password" class="form-control passwordInicial" placeholder="nueva contraseña" />
+                        <label for="floatingInput">Contraseña:</label>
+                        <!--- <span class="fa fa-fw fa-eye password-icon show-password2"></span> -->
+                    </div>
+             
+                    <div style="text-align:right; margin-top:8px;">
+                        <input type="checkbox" onclick="MostrarPasswordIniarSession()" /> <label for="MostrarPass">Mostrar contraseña</label>
+                    </div>
+                    <!--- -->
+                    <!--- -->
+
+
+                    <br />
+                    <div class="col-12 text-center">
+                        
+                        <button id="BotonPrimario" class="btn btn-lg  marginBotton" onclick="Iniciar()"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem;">
+                            Iniciar
+                        </button>
+                        <small>
+                           
+                            <p class="small fw-bold mt-2 pt-1 mb-0">¿HAZ OLVIDADO TU CONTRASEÑA?  <a class="link-danger pointer" onclick="AbrirModalSolicitarContraseña()"> Recuperar</a></p>
+                            <p class="small fw-bold mt-2 pt-1 mb-0">¿TE INTERESA ALPHA WEB? <a class="link-primary" href="@Url.Action("DescargarValidadorCliente", "Inicio")">  Validador <i class="fas fa-cloud-download-alt"></i> </a></p>
+
+                        </small>
+                        
+                    </div>
+                    <div class="divider d-flex align-items-center my-4">
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="RecuperarContrasenia" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <section>
+                    <div class=" text-center">
+                        <img class="margen" src="~/Content/Imagenes/ESCUDO_GRIS.png" alt="Sample image" style="height: 200px; width:120px; margin-top:6px;">
+
+                        <h2 class="margen">CAMBIAR CONTRASEÑA</h2>
+
+                        <div class="form-floating margen">
+                            <input id="usuarioRecuperarPass" class="form-control" placeholder="USUARIO" />
+                            <label for="floatingInput">Usuario: </label>
+                        </div>
+
+
+                        <div class="form-floating margen">
+                            <input id="numeroEmpleadoRecuperarPass" type="number" class="form-control" placeholder="NUMERO EMPLEADO" />
+                            <label for="floatingInput">Numero Empleado:</label>
+
+                        </div>
+
+
+                        <div id="DivTiempoEspera" class="col-12 margen text-center" style=" background-color: rgb(236, 235, 235); display: none;">
+                            <small id="SegundosEspera" style="color: grey; font-size: 18px; font-weight: bold;"> ...</small>
+                        </div>
+
+                        <div class="col-12 text-center margen">
+                            <button id="BotonPrimarioSolicitarCambioPass" class="btn btn-lg " onclick="SolicitarCambioPasswordDesdeWeb()" >
+                                Recuperar
+                            </button>
+                        </div>
+
+                    </div>
+                </section>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

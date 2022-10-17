@@ -1,0 +1,32 @@
+﻿@model List<RH.Login.Entidades.DTO.UsuarioNoRegistradoDTO>
+
+<div class="row">
+
+    <div class="text-center marginBotton">
+        <H2> Registrar usuario en login centralizado para usar aplicaciones web </H2>
+        <p>Un usuario puede tener mas de un rol por aplicativo   </p>
+    </div>
+
+    <div class="text-center marginBotton ">
+
+        <input list="browsers" name="browser" id="buscadorEmpleado" class="text-center" placeholder="Ingrese el numero de empleado">
+
+        <datalist id="browsers">
+            @foreach (var nuevoUsuairoNoregistrado in Model)
+            {
+                <option value="@nuevoUsuairoNoregistrado.Num"> @nuevoUsuairoNoregistrado.MostrarTexto</option>
+            }
+        </datalist>
+    </div>
+
+
+    <div class="text-center">
+        <div class="col-12 ">
+            <button id="BotonPrimario" class=" text-center col-md-4 col-12   btn  " title="Agrega un usuario a la version web de alpha" onclick="AgregarUsuario()">Agregar cuenta </button>
+        </div>
+    </div>
+
+</div>
+
+
+

@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--    CSS    -->
+    <link rel="stylesheet" href="~/Content/Inicio.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+
+    <!-- Bootstrap CSS -->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Scripts/bootstrap.bundle.min.js" />
+
+    @*<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">*@
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+    @*<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">*@
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    @*<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>*@
+
+
+
+
+    <!-- Jquery  -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+    <!-- DATATABLES 1.12.1-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.css" />
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
+
+
+    <!-- blockUI V3.7  -->
+    <script src="~/Scripts/jquery.blockUI.js"></script>
+    <script src="~/Scripts/Mensajes.js"></script>
+
+    <!-- Select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <!-- AXIOS -->
+    @*<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>*@
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+    <!-- SWEETALERT v11 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+
+            <section>
+                <br />
+                <div class=" text-center">
+                    <img class="margen" src="~/Content/Imagenes/ESCUDO_GRIS.png" alt="Sample image" style="height: 250px; width:160px; margin-top:6px;">
+
+                    <br />
+                    <br />
+
+                </div>
+            </section>
+
+
+
+            <div class="text-center marginBotton">
+                <div class="btn-group">
+                    <button id="BotonPrimario" class="btn btn-lg dropdown-toggle text-light botonSidebar" data-bs-toggle="dropdown" aria-expanded="false">
+                        Recursos web
+                    </button>
+
+                    <ul class="dropdown-menu">
+                        <li> <a @Html.ActionLink("Inicio", "InicioApp", "SesionUsuario") </a> </li>
+                        <li><hr class="dropdown-divider"></li>
+
+                        @foreach (var nuevaApp in ViewBag.Aplicaciones)
+                        {
+                            @*<li><a class="dropdown-item" onclick="ValidarUrl(@nuevaApp.IdLlave , @nuevaApp.IdUser)">@nuevaApp.NombreApp</a></li>*@
+                            <li> <a href="@Url.Action("CrearUrl", "SesionUsuario", new { idCatAppServidor = nuevaApp.IdLlave, idTblUsuario = nuevaApp.IdUser })">@nuevaApp.NombreApp</a> </li>
+                            <li><hr class="dropdown-divider"></li>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+
+
+            @if (Model.EsUsuarioRoot)
+            {
+                <div class="text-center marginBotton">
+
+                    <div class="btn-group ">
+                        <button id="BotonPrimario" class="btn btn-lg dropdown-toggle text-light botonSidebar" data-bs-toggle="dropdown" aria-expanded="false">
+                            Administrar
+                        </button>
+
+                        <ul class="dropdown-menu desplegar-menu-sidebar">
+                            <li><a class="dropdown-item" onclick="Redireccionar('@Url.Content("~/UsuarioRoot/RegistrarUsuario")')">Registrar Usuario </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item " onclick="Redireccionar('@Url.Content("~/UsuarioRoot/VincularUsuario")')">Vincular Usuario</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item " onclick="Redireccionar('@Url.Content("~/UsuarioRoot/VerVinculosPorEmpleado")')">Vinculos creados</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item " onclick="Redireccionar('@Url.Content("~/UsuarioRoot/ResetearContraseniaUsuario")')">Resetar Pass</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                        </ul>
+
+
+                    </div>
+                </div>
+            }
+
+
+
+            <div class="text-center">
+                <a class="text-light" href="@Url.Action("CerrarSesion" , "SesionUsuario" )">
+                    <button class="btn botonSidebar btn-secondary">
+                        Cerrar Sesion
+                    </button>
+                </a>
+            </div>
+
+
+        </nav>
+        <!-- Fin de SideBart-->
+
+        <div id="content">
+            <!-- Inicio del Navbar  -->
+            <nav class="navbar navbar-expand-lg ">
+                <div class="container-fluid">
+
+                    <button id="sidebarCollapse" class="btn" title="Abre o cierra la barra de navegacion">
+                        <i class="fas fa-bars"></i>
+                    </button>
+
+                </div>
+            </nav>
+            <!-- Fin del Navbar  -->
+
+            <div class="line"></div>
+
+            <div id="RenderBody" class="container-fluid">
+                @RenderBody()
+
+
+            </div>
+
+
+            <br />
+            <br />
+            <br />
+        </div>
+
+    </div>
+
+
+        <span id="EsUsuarioNuevoElementoDom" style="display:none;">@Model.EsUsuarioNuevo</span>
+    
+
+    <!-- Modal -->
+    <div class="modal fade" id="ResetDesdeAdmin" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+               
+                    <section>
+                        <div class=" text-center">
+
+                            <div class="row" style="background-color: yellow; border-radius: 16px;">
+
+
+                                <h5>Hemos detectado que un administrador cambio su contraseña </h5>
+                                <h5>para mantener la integridad de su cuenta:</h5>
+                                <h4>Le sugerimos cambiar su contrañesa por una nueva</h4>
+
+                            </div>
+
+                            <br>
+                            <br>
+
+                            <h3 class="margen">CAMBIAR CONTRASEÑA</h3>
+
+
+
+                            @*<div class="form-floating margen text-start">
+                                <input id="nuevoPass" type="password" class="form-control" placeholder="nueva contraseña" />
+                                <label for="floatingInput">Nueva contraseña:</label>
+
+                            </div>
+                            <br>
+
+                            <div class="form-floating margen text-start">
+                                <input id="repitenuevoPass" type="password" class="form-control" placeholder="Repita su nueva contraseña" />
+                                <label for="floatingInput">Repita su nueva contraseña: </label>
+                            </div>*@
+
+
+                            <!---  -->
+                            <div class="form-floating margen">
+                                <input id="nuevoPass" type="password" name="password" class="form-control password1" placeholder="nueva contraseña" />
+                                <label for="floatingInput">Nueva contraseña:</label>
+                                <!--- <span class="fa fa-fw fa-eye password-icon show-password2"></span> -->
+                            </div>
+
+                            <div class="form-floating ">
+                                <input id="repitenuevoPass" type="password" name="password2" class="form-control password2" placeholder="Repita su nueva contraseña" />
+                                <label for="floatingInput">Repita su nueva contraseña: </label>
+                            </div>
+
+                            <br />
+
+                            <div style="text-align:right;">
+                                <input id="MostrarPass" type="checkbox" onclick="MostrarPasswordUsuarioNuevo()" /> <label for="MostrarPass">Mostrar contraseñas</label>
+                            </div>
+
+                            <ol class="margen" style="text-align: left;">
+                                <small class="form-text text-muted">
+                                    Las claves deben:
+                                <li>Coincidir</li>
+                                <li>No tener espacios en blanco</li>
+                                <li>No estar vacias</li>
+
+                                </small>
+                            </ol>
+
+                            <!---  -->
+
+
+
+                            <div class="col-12 text-center marginTop">
+                                <button class="btn btn-lg btn-primary" onclick="cambiarPassword(@ViewBag.idCuentaUsuarioCambiaPass)">
+                                    Cambiar contraseña
+                                </button>
+                            </div>
+
+                        </div>
+                    </section>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="~/Scripts/ScriptsDelProyecto/InicioApp.js"></script>
+    
+</body>
+</html>
+
+
+
+
+
